@@ -1,0 +1,37 @@
+{
+    'name': 'Hospital Management',
+    'author': 'Muhammad Mohiuddin',
+    'version': '1.1',
+    'summary': 'Hospital Management Software',
+    'sequence': 20,
+    'description': """Hospital Management Software""",
+    'category': 'Productivity',
+    'website': 'https://www.example.com',
+    'license': 'LGPL-3',
+    'depends': ['sale',
+                'mail',
+                'hr',
+                'report_xlsx'
+                ],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/data.xml',
+        'wizard/create_appointment_view.xml',
+        'wizard/search_appointment_view.xml',
+        'views/appointment_view.xml',
+        'views/doctor_view.xml',
+        'views/kids_view.xml',
+        'views/patient_gender_view.xml',
+        'views/patient_view.xml',
+        'views/sale.xml',
+        'report/patient_details_template.xml',
+        'report/patient_card.xml',
+        'report/report.xml'
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+
+}

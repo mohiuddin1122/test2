@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- list and tree view (are same) of odoo -->
+    <record id="rank_tree" model="ir.ui.view">
+        <field name="name">hr.rank.tree</field>
+        <field name="model">hr.rank</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="min_salary"/>
+                <field name="max_salary"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- form view of odoo -->
+
+    <record id="rank_form" model="ir.ui.view">
+        <field name="name">hr.rank.form</field>
+        <field name="model">hr.rank</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="min_salary"/>
+                            <field name="max_salary"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- for chatter of odoo -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- search view of odoo -->
+
+    <record id="rank_search" model="ir.ui.view">
+        <field name="name">hr.rank.search</field>
+        <field name="model">hr.rank</field>
+        <field name="arch" type="xml">
+            <search string="Patients">
+                <group>
+                    <field name="company_id"/>
+                    <field name="name"/>
+                    <field name="min_salary"/>
+                    <field name="max_salary"/>
+                    <field name="note"/>
+                </group>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- action of the menu -->
+
+    <record id="hr_rank_action" model="ir.actions.act_window">
+        <field name="name">Rank</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.rank</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                create your first rank !
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="hr_rank_root"
+              name="Rank"
+              sequence="10"/>
+
+    <menuitem id="hr_rank_employee"
+              name="Employee Rank"
+              parent="hr_rank_root"
+              sequence="10"/>
+
+    <menuitem id="hr_rank"
+              name="Rank"
+              parent="hr_rank_employee"
+              action="hr_rank_action"
+              sequence="10"/>
+
+</odoo>
